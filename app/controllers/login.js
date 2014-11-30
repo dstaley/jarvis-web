@@ -11,7 +11,7 @@ export default Ember.Controller.extend({
 	actions: {
 		login: function(user_id){
 			this.get('userAuthenticationService').login(user_id);
-			this.replaceWith('index');
+			this.replaceRoute('index');
 		},
 		logout: function(){ this.get('userAuthenticationService').logout(); },
 		selectedUser: function() { alert(this.selectedUser.id); }
