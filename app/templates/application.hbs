@@ -1,3 +1,57 @@
-<h2 id='title'>Welcome to Ember.js</h2>
+<div id="wrapper">
+        <div class="navbar-default sidebar" role="navigation">
+            <div class="sidebar-nav navbar-collapse">
+                <ul class="nav" id="side-menu">
+                    {{#if userAuthenticationService.currentUser}}
+                    <li class="sidebar-search">
+                        <div class="input-group custom-search-form">
+                            <img class="current-user" src="http://www.gravatar.com/avatar/81de7149a0eea08b746f9e0d3a102dad?s=200" />
+                            <span class="current-user">
+                                {{userAuthenticationService.currentUser.name}} <a {{action 'logout'}}><i class="fa fa-sign-out fa-fw"></i></a>
+                            </span>
+                        </div>
+                        <!-- /input-group -->
+                    </li>
+                    {{else}}
+                    <li>{{#link-to 'login'}}Login{{/link-to}}</li>
+                    {{/if}}
+                    <li class="sidebar-search">
+                        <div class="input-group custom-search-form">
+                            {{input type="text" value=search classNames="form-control" action='search'}}
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="button" {{action 'search'}}>
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </span>
+                        </div>
+                        <!-- /input-group -->
+                    </li>
+                    <li>
+                        {{#link-to 'index'}}Dashboard{{/link-to}}
+                    </li>
+                    <li>
+                        {{#link-to 'people'}}People{{/link-to}}
+                    </li>
+                    <li>
+                        {{#link-to 'kits'}}Kits{{/link-to}}
+                    </li>
+                    <li>
+                        {{#link-to 'items'}}Items{{/link-to}}
+                    </li>
+                </ul>
+            </div>
+            <!-- /.sidebar-collapse -->
+        </div>
+        <!-- /.navbar-static-side -->
+    </nav>
 
-{{outlet}}
+    <!-- Page Content -->
+    <div id="page-wrapper">
+        <div class="container-fluid">
+            {{liquid-outlet}}
+        </div>
+        <!-- /.container-fluid -->
+    </div>
+    <!-- /#page-wrapper -->
+
+</div>
