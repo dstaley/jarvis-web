@@ -1,0 +1,65 @@
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">Edit {{model.item.name}}</h1>
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+<!-- /.row -->
+
+<div class="row">
+	<form class="form-horizontal" role="form">
+	  <div class="form-group">
+	    <label for="inputFirstName" class="col-sm-2 control-label">Name</label>
+	    <div class="col-sm-3">
+	      {{input type="text" value=model.item.name classNames="form-control"}}
+	    </div>
+	  </div>
+	  <div class="form-group">
+	    <label for="inputLastName" class="col-sm-2 control-label">Type</label>
+	    <div class="col-sm-3">
+	      {{input type="text" value=model.item.type classNames="form-control"}}
+	    </div>
+	  </div>
+	  <div class="form-group">
+	    <label for="inputLastName" class="col-sm-2 control-label">Serial</label>
+	    <div class="col-sm-3">
+	      {{input type="text" value=model.item.serial classNames="form-control"}}
+	    </div>
+	  </div>
+	  <div class="form-group">
+	    <label for="inputLastName" class="col-sm-2 control-label">Location</label>
+	    <div class="col-sm-3">
+	      {{view "select" content=model.locations.locations optionValuePath="content.id" optionLabelPath="content.name" value=model.item.location.id prompt="Please choose location" classNames="form-control"}}
+	    </div>
+	  </div>
+	  <div class="form-group">
+	    <label for="inputLastName" class="col-sm-2 control-label">Kit</label>
+	    <div class="col-sm-3">
+	      {{select-2 content=model.kits.kits optionLabelPath="name" optionValuePath="id" value=model.item.kit.id placeholder="No Kit"}}
+	    </div>
+	  </div>
+	  <div class="form-group">
+	    <label for="inputLastName" class="col-sm-2 control-label">Condition</label>
+	    <div class="col-sm-3">
+	      {{input type="text" value=model.item.condition classNames="form-control"}}
+	    </div>
+	  </div>
+	  <div class="form-group">
+	    <label for="inputLastName" class="col-sm-2 control-label">Status</label>
+	    <div class="col-sm-3">
+	      {{input type="text" value=model.item.status classNames="form-control"}}
+	    </div>
+	  </div>
+	  <div class="form-group">
+	    <label for="inputLastName" class="col-sm-2 control-label">Last Price Paid</label>
+	    <div class="col-sm-3">
+	      {{input type="text" value=model.item.last_price_paid classNames="form-control"}}
+	    </div>
+	  </div>
+	  <div class="form-group">
+	    <div class="col-sm-offset-2 col-sm-10">
+	      <button type="submit" class="btn btn-primary" {{action 'updateItem'}}>Update</button>
+	    </div>
+	  </div>
+	</form>
+</div>

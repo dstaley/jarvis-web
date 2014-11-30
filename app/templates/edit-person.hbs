@@ -1,0 +1,53 @@
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">Edit {{model.first_name}} {{model.last_name}}</h1>
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+<!-- /.row -->
+
+<div class="row">
+	<form class="form-horizontal" role="form">
+	  <div class="form-group">
+	    <label for="inputFirstName" class="col-sm-2 control-label">First Name</label>
+	    <div class="col-sm-3">
+	      {{input type="text" value=model.first_name classNames="form-control"}}
+	    </div>
+	  </div>
+	  <div class="form-group">
+	    <label for="inputLastName" class="col-sm-2 control-label">Last Name</label>
+	    <div class="col-sm-3">
+	      {{input type="text" value=model.last_name classNames="form-control"}}
+	    </div>
+	  </div>
+	  <div class="form-group">
+	    <label for="inputMyLSUID" class="col-sm-2 control-label">myLSU ID (mtiger1)</label>
+	    <div class="col-sm-3">
+	      {{input type="text" value=model.mylsu_id classNames="form-control"}}
+	    </div>
+	  </div>
+	  <div class="form-group">
+	    <label for="inputLSUID" class="col-sm-2 control-label">LSU 89 Number</label>
+	    <div class="col-sm-3">
+	      {{input type="text" value=model.lsu_id classNames="form-control"}}
+	    </div>
+	  </div>
+	  <div class="form-group">
+	    <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+	    <div class="col-sm-3">
+	      {{input type="email" value=model.email classNames="form-control"}}
+	    </div>
+	  </div>
+	  <div class="form-group">
+	    <label for="inputPhoneNumber" class="col-sm-2 control-label">Phone Number</label>
+	    <div class="col-sm-3">
+	      {{input type="text" value=model.phone_number classNames="form-control"}}
+	    </div>
+	  </div>
+	  <div class="form-group">
+	    <div class="col-sm-offset-2 col-sm-10">
+	      <button type="submit" class="btn btn-primary" {{action 'updatePerson'}}>Update</button>
+	    </div>
+	  </div>
+	</form>
+</div>

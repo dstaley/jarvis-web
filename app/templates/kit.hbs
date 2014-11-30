@@ -1,0 +1,103 @@
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">{{kit.name}}
+        {{#if userAuthenticationService.currentUser}}
+        {{#if kit.available}}
+        	{{#link-to 'add-checkout' (query-params kit=kit.id)}}
+        		<button class="btn btn-primary pull-right">Checkout</buton>
+        	{{/link-to}}
+        {{/if}}
+        {{/if}}
+        {{#link-to 'edit-kit' kit.id}}
+        	<button class="btn btn-primary pull-right">Edit</buton>
+        {{/link-to}}
+        </h1>
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+<!-- /.row -->
+
+<div class="row">
+	<div class="col-lg-12">
+	    <h3>Type: {{kit.type}}</h3>
+	    <h3>Status: {{kit.status}}</h3>
+	    <h3>Availability: {{#if kit.available}}Available{{else}}Unavailable{{/if}}</h3>
+	    <h3>Location: {{kit.location.name}}</h3>
+	    {{#if kit.needs_permission}}
+	    	<h3>Special Restrictions: {{kit.permission_statement}}</h3>
+	    {{/if}}
+	</div>
+	<!-- /.col-lg-12 -->
+</div>
+
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">Items in {{kit.name}}</h1>
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+<!-- /.row -->
+
+<div class="row">
+	<div class="col-lg-12">
+	    <div class="table-responsive">
+	        <table class="table table-striped table-bordered table-hover">
+	            <thead>
+	                <tr>
+	                    <th>Name</th>
+	                    <th>Availability</th>
+	                </tr>
+	            </thead>
+	            <tbody>
+	                {{#each item in kit.items}}
+	                	<tr>
+	                		<td>{{#link-to 'item' item.id}}{{item.name}}{{/link-to}}</td>
+	                		<td>{{#link-to 'item' item.id}}{{#if item.available}}Available{{else}}Unavailable{{/if}}{{/link-to}}</td>
+	                	</tr>
+	                {{/each}}
+	            </tbody>
+	        </table>
+	    </div>
+	    <!-- /.table-responsive -->
+	</div>
+	<!-- /.col-lg-12 -->
+</div>
+
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">Checkouts</h1>
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+<!-- /.row -->
+
+<div class="row">
+	<div class="col-lg-12">
+	    <div class="table-responsive">
+	        <table class="table table-striped table-bordered table-hover">
+	            <thead>
+	                <tr>
+	                    <th>Person</th>
+	                    <th>Checkout Date</th>
+	                    <th>Due Date</th>
+	                    <th>Extensions</th>
+	                    <th>Created By</th>
+	                </tr>
+	            </thead>
+	            <tbody>
+	                {{#each checkout in checkouts.checkouts}}
+	                	<tr>
+	                		<td>{{#link-to 'checkout' checkout.id}}{{checkout.patron.name}}{{/link-to}}</td>
+	                		<td>{{moment checkout.checkout_date}}</td>
+	                		<td>{{ago checkout.due_date}}</td>
+	                		<td>{{checkout.extensions}}</td>
+	                		<td>{{checkout.created_by.name}}</td>
+	                	</tr>
+	                {{/each}}
+	            </tbody>
+	        </table>
+	    </div>
+	    <!-- /.table-responsive -->
+	</div>
+	<!-- /.col-lg-12 -->
+</div>

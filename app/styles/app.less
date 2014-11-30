@@ -1,0 +1,44 @@
+@import "bower_components/bootstrap/less/bootstrap.less";
+@import (inline) "bower_components/metisMenu/dist/metisMenu.css";
+@import "sb-admin-2.less";
+
+input:invalid {
+	border-color: red !important;
+}
+
+/* ugh, need to reset all of this so it doesn't look like shit. */
+.select2-container.form-control {
+	border: none;
+	box-shadow: none;
+	padding: 0;
+	height: auto;
+}
+
+.select2-highlighted .text-muted {
+	color: black;
+}
+
+.navbar-inverse a {
+	color: darken(white, 30%);
+}
+
+.navbar-inverse a.active {
+	color: black;
+}
+
+span.current-user {
+	font-weight: bold;
+	display: block;
+	float: right;
+	padding-top: 8px;
+}
+
+img.current-user {
+	float: left;
+	width: 36px;
+	margin-right: 5px;
+}
+
+h1 .btn.pull-right {
+	margin-right: 10px;
+}
