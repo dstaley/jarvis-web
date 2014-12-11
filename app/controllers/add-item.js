@@ -19,7 +19,7 @@ export default Ember.Controller.extend({
 			this.get('status'),
 			this.get('last_price_paid')
 		];
-		return !(fields.every(function(element){ return element != '' && element != null; }));
+		return !(fields.every(function(element){ return element !== '' && element !== null; }));
 	}.property('name', 'type', 'location', 'condition', 'status', 'last_price_paid'),
 	actions: {
 		createItem: function() {
@@ -34,7 +34,7 @@ export default Ember.Controller.extend({
 				'status': this.status,
 				'last_price_paid': this.last_price_paid
 			};
-			store.create('items', item_data).then(function(response){
+			store.create('items', item_data).done(function(response){
 				controller.set('name', null);
 				controller.set('type', null);
 				controller.set('serial', null);
@@ -44,6 +44,13 @@ export default Ember.Controller.extend({
 				controller.set('status', null);
 				controller.set('last_price_paid', null);
 				controller.transitionToRoute('item', response.items[0].id);
+			})
+			.fail(function(response){
+				swal({
+					title: "Yikes!",
+					text: response.responseJSON.message,
+					type: 'error'
+				});
 			});
 		}
 	}

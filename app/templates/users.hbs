@@ -1,0 +1,24 @@
+<div class="row">
+	<div class="col-lg-12">
+		<h1 class="page-header">
+		Users
+		{{#link-to 'add-user'}}<button class="btn btn-primary pull-right">Add User</buton>{{/link-to}}
+		</h1>
+	</div>
+	<!-- /.col-lg-12 -->
+</div>
+<!-- /.row -->
+
+<div class="row">
+	{{#each user in model.users}}
+		<div class="col-lg-3 user-card">
+			{{#link-to 'user' user.id}}
+				<div class="thumbnail">
+					{{gravatar-image email=user.email size=250}}
+					<div class="caption"><h3>{{user.name}}</h3></div>
+				</div>
+			{{/link-to}}
+		</div>
+	{{/each}}
+	<!-- /.col-lg-12 -->
+</div>

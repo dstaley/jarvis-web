@@ -15,16 +15,23 @@ export default Ember.Controller.extend({
 		logItems: function(){
 			this.get('checkedItems').map(function(item){
 				console.log(item.name);
-			})
+			});
 		},
 		returnItems: function(){
 			var controller = this;
 			var checkout_items = this.get('checkedItems').map(function(item){
 				return item.id;
 			});
-			store.update('checkout-items', {'checkout_items':checkout_items, 'available': this.get('makeAvailable')}).then(function(response){
-				controller.transitionTo('index');
+			store.update('checkout-items', {'checkout_items':checkout_items, 'available': this.get('makeAvailable')}).done(function(){
+				controller.transitionToRoute('index');
 			})
+			.fail(function(response){
+				swal({
+					title: "Yikes!",
+					text: response.responseJSON.message,
+					type: 'error'
+				});
+			});
 		}
 	}
 });

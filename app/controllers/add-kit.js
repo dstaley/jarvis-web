@@ -14,7 +14,7 @@ export default Ember.Controller.extend({
 			this.get('type'),
 			this.get('location'),
 		];
-		return !(fields.every(function(element){ return element != '' && element != null; }));
+		return !(fields.every(function(element){ return element !== '' && element !== null; }));
 	}.property('name', 'type', 'location'),
 	actions: {
 		createKit: function() {
@@ -27,7 +27,7 @@ export default Ember.Controller.extend({
 				'needs_permission': this.needs_permission,
 				'permission_statement': this.permission_statement
 			};
-			store.create('kits', kit_data).then(function(response){
+			store.create('kits', kit_data).done(function(response){
 				controller.set('name', null);
 				controller.set('type', null);
 				controller.set('location', null);
@@ -35,6 +35,13 @@ export default Ember.Controller.extend({
 				controller.set('needs_permission', false);
 				controller.set('permission_statement', null);
 				controller.transitionToRoute('kit', response.kits[0].id);
+			})
+			.fail(function(response){
+				swal({
+					title: "Yikes!",
+					text: response.responseJSON.message,
+					type: 'error'
+				});
 			});
 		}
 	}

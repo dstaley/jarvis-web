@@ -1,0 +1,9 @@
+{
+  "firebase": "jarvis-testing",
+  "public": "dist",
+  "ignore": [
+    "firebase.json",
+    "**/.*",
+    "**/node_modules/**"
+  ]
+}

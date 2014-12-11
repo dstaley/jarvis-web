@@ -17,7 +17,7 @@ export default Ember.Controller.extend({
 	kit: null,
 	person: null,
 	dueDate: d(),
-	dueDateinFuture: function(){ return this.get('dueDate') > new Date() }.property('dueDate'),
+	dueDateinFuture: function(){ return this.get('dueDate') > new Date(); }.property('dueDate'),
 	proxiedItems: Ember.computed.map('model.items.items', function(model) {
 		return Ember.ObjectProxy.create({
 			name: model.name,
@@ -31,18 +31,25 @@ export default Ember.Controller.extend({
 	actions: {
 		createCheckout: function(){
 			var controller = this;
-			if (this.get('availableItems').length == this.get('checkedItems').length) {
+			if (this.get('availableItems').length === this.get('checkedItems').length) {
 				store.create('checkouts', {
 					'user': this.get('userAuthenticationService.currentUser').id,
 					'kit': this.get('kit'),
 					'person': this.get('person'),
 					'due_date': moment(this.get('dueDate')).format('YYYY-MM-DD'),
 					'items': this.get('checkedItems').map(function(item){return item.id;})}
-				).then(function(response){
+				).done(function(response){
 					controller.set('kit', null);
 					controller.set('person', null);
 					controller.set('dueDate', d());
 					controller.transitionToRoute('checkout', response.checkout.id);
+				})
+				.fail(function(response){
+					swal({
+						title: "Yikes!",
+						text: response.responseJSON.message,
+						type: 'error'
+					});
 				});
 			} else {
 				alert('You must select all available items.');

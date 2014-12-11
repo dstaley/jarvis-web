@@ -20,7 +20,7 @@ export default Ember.Controller.extend({
 			this.get('mylsu_id'),
 			this.get('lsu_id')
 		];
-		return !(fields.every(function(element){ return element != '' && element != null; }));
+		return !(fields.every(function(element){ return element !== '' && element !== null; }));
 	}.property('first_name', 'last_name', 'email', 'phone_number', 'mylsu_id', 'lsu_id'),
 	actions: {
 		createPerson: function() {
@@ -33,15 +33,23 @@ export default Ember.Controller.extend({
 				'mylsu_id': this.mylsu_id,
 				'lsu_id': this.lsu_id
 			};
-			store.create('people', person_data).then(function(response){
-				controller.set('first_name', null);
-				controller.set('last_name', null);
-				controller.set('email', null);
-				controller.set('phone_number', null);
-				controller.set('mylsu_id', null);
-				controller.set('lsu_id', null);
-				controller.transitionTo('person', response.people[0].id);
-			})
+			store.create('people', person_data)
+				.fail(function(response){
+					swal({
+						title: "Yikes!",
+						text: response.responseJSON.message,
+						type: 'error'
+					});
+				})
+				.done(function(response){
+					controller.set('first_name', null);
+					controller.set('last_name', null);
+					controller.set('email', null);
+					controller.set('phone_number', null);
+					controller.set('mylsu_id', null);
+					controller.set('lsu_id', null);
+					controller.transitionTo('person', response.people[0].id);
+				});
 		}
 	}
 });

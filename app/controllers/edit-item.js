@@ -23,7 +23,7 @@ export default Ember.Controller.extend({
 				'status': this.get('content.item.status'),
 				'last_price_paid': this.get('content.item.last_price_paid')
 			};
-			store.update('items', this.get('content.item.id'), item_data).then(function(response){
+			store.update('items', this.get('content.item.id'), item_data).done(function(response){
 				controller.set('name', null);
 				controller.set('type', null);
 				controller.set('serial', null);
@@ -33,6 +33,13 @@ export default Ember.Controller.extend({
 				controller.set('status', null);
 				controller.set('last_price_paid', null);
 				controller.transitionToRoute('item', response.id);
+			})
+			.fail(function(response){
+				swal({
+					title: "Yikes!",
+					text: response.responseJSON.message,
+					type: 'error'
+				});
 			});
 		}
 	}

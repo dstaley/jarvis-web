@@ -2,7 +2,11 @@
   "predef": [
     "document",
     "window",
-    "-Promise"
+    "-Promise",
+    "$",
+    "moment",
+    "md5",
+    "Sortable"
   ],
   "browser": true,
   "boss": true,

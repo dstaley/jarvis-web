@@ -23,7 +23,7 @@ module.exports = function(environment) {
       'script-src': "'self' 'unsafe-eval'",
       'font-src': "'self' http://fonts.gstatic.com",
       'connect-src': "'self' http://localhost:5000",
-      'img-src': "'self' http://www.gravatar.com",
+      'img-src': "*",
       'style-src': "'self' 'unsafe-inline' http://fonts.googleapis.com",
       'media-src': "'self'"
     }
@@ -35,6 +35,7 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     ENV.APP.LOG_VIEW_LOOKUPS = true;
+    ENV.API_BASE_URL = '//localhost:5000';
   }
 
   if (environment === 'test') {
@@ -50,7 +51,7 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-
+    ENV.API_BASE_URL = '//damp-gorge-2191.herokuapp.com';
   }
 
   return ENV;

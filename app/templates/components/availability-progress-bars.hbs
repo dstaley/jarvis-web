@@ -1,0 +1,11 @@
+{{#each kit in kits}}
+<div>
+    <p>
+        <strong>{{kit.type}}</strong>
+        <span class="pull-right text-muted">{{kit.available}} of {{kit.total}} available</span>
+    </p>
+    <div class="progress progress-striped active">
+        <div {{bind-attr class=":progress-bar kit.priority"}} role="progressbar" {{bind-attr style=kit.availability}} />
+    </div>
+</div>
+{{/each}}

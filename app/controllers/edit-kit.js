@@ -14,7 +14,7 @@ export default Ember.Controller.extend({
 				'needs_permission': this.get('content.kit.needs_permission'),
 				'permission_statement': this.get('content.kit.permission_statement')
 			};
-			store.update('kits', this.get('content.kit.id'), kit_data).then(function(response){
+			store.update('kits', this.get('content.kit.id'), kit_data).done(function(response){
 				controller.set('name', null);
 				controller.set('type', null);
 				controller.set('location', null);
@@ -23,6 +23,13 @@ export default Ember.Controller.extend({
 				controller.set('permission_statement', null);
 				controller.set('available', false);
 				controller.transitionToRoute('kit', response.id);
+			})
+			.fail(function(response){
+				swal({
+					title: "Yikes!",
+					text: response.responseJSON.message,
+					type: 'error'
+				});
 			});
 		}
 	}

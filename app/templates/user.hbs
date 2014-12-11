@@ -1,0 +1,18 @@
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">
+        {{model.name}}
+        {{#link-to 'edit-user' model.id}}<button class="btn btn-primary pull-right">Edit</buton>{{/link-to}}
+        </h1>
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+<!-- /.row -->
+
+<div class="row">
+	<div class="col-lg-12">
+	    <h3>Email: {{model.email}}</h3>
+	    <h3>Admin: {{model.is_admin}}</h3>
+	</div>
+	<!-- /.col-lg-12 -->
+</div>

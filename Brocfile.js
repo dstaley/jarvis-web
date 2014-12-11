@@ -18,11 +18,15 @@ var app = new EmberApp();
 // along with the exports of each module as its value.
 
 app.import('bower_components/bootstrap/dist/js/bootstrap.js');
+app.import('bower_components/sortable/js/sortable.js');
 app.import("bower_components/font-awesome/css/font-awesome.css");
 app.import("bower_components/font-awesome/fonts/fontawesome-webfont.eot", { destDir: "fonts" });
 app.import("bower_components/font-awesome/fonts/fontawesome-webfont.svg", { destDir: "fonts" });
 app.import("bower_components/font-awesome/fonts/fontawesome-webfont.ttf", { destDir: "fonts" });
 app.import("bower_components/font-awesome/fonts/fontawesome-webfont.woff", { destDir: "fonts" });
 app.import("bower_components/font-awesome/fonts/FontAwesome.otf", { destDir: "fonts" });
+app.import("bower_components/JavaScript-MD5/js/md5.js");
+app.import("bower_components/sweetalert/lib/sweet-alert.js");
+app.import("bower_components/sweetalert/lib/sweet-alert.css");
 
 module.exports = app.toTree();

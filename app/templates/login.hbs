@@ -1,16 +1,21 @@
 <div class="row">
-    <div class="col-lg-12">
-        <h1 class="page-header">Login</h1>
-    </div>
-    <!-- /.col-lg-12 -->
+	<div class="col-lg-12">
+		<h1 class="page-header">Login</h1>
+	</div>
+	<!-- /.col-lg-12 -->
 </div>
 <!-- /.row -->
 
 <div class="row">
-	<div class="col-lg-12">
-	    {{#each user in model.users}}
-	    	<button class="btn btn-primary" {{action 'login' user}}>{{user.name}}</button>
-	    {{/each}}
-	</div>
+	{{#each user in model.users}}
+		<div class="col-lg-3 user-card">
+			<a {{action 'login' user}}>
+				<div class="thumbnail">
+					{{gravatar-image email=user.email size=250}}
+					<div class="caption"><h3>{{user.name}}</h3></div>
+				</div>
+			</a>
+		</div>
+	{{/each}}
 	<!-- /.col-lg-12 -->
 </div>

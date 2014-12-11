@@ -1,4 +1,6 @@
-var API_BASE_URL = 'http://localhost:5000';
+import config from '../config/environment';
+
+var API_BASE_URL = config.API_BASE_URL;
 
 function ajaxJSON(url, data, method) {
 	return $.ajax({
@@ -33,6 +35,10 @@ export default {
 		return postJSON(API_BASE_URL+'/'+entity, entity_data);
 	},
 	update: function(entity, entity_id, entity_data) {
-		return putJSON(API_BASE_URL+'/'+entity+'/'+entity_id, entity_data);
+		if (typeof entity_id === 'object') {
+			return putJSON(API_BASE_URL+'/'+entity, entity_id);
+		} else {
+			return putJSON(API_BASE_URL+'/'+entity+'/'+entity_id, entity_data);
+		}
 	}
-}
+};

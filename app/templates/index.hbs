@@ -1,1 +1,43 @@
-<h1 class="page-header">Dashboard</h1>
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">Dashboard
+        </h1>
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+<!-- /.row -->
+
+<div class="row">
+                <div class="col-lg-4 col-md-6">
+                    {{overdue-items-panel}}
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    {{max-overdue}}
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    {{on-time-ratio}}
+                </div>
+            </div>
+
+<div class="row">
+	<div class="col-lg-4">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				Kit Availability
+			</div>
+			<div class="panel-body">
+				{{availability-progress-bars}}
+			</div>
+		</div>
+	</div>
+	<div class="col-lg-8">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				Checkouts Per Day
+			</div>
+			<div class="panel-body">
+				{{checkouts-per-day}}
+			</div>
+		</div>
+	</div>
+</div>

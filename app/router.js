@@ -23,6 +23,15 @@ Router.map(function() {
   this.route('edit-person', { path: '/people/:person_id/edit' });
   this.route('edit-kit', { path: '/kits/:kit_id/edit' });
   this.route('edit-item', { path: '/items/:item_id/edit' });
+  this.route('overdue-items');
+  this.route('users');
+  this.route('user', { path: '/users/:user_id' });
+  this.route('add-user', { path: '/users/new' });
+  this.route('edit-user', { path: '/users/:user_id/edit' });
+  this.route('locations');
+  this.route('add-location');
+  this.route('edit-location', { path: '/locations/:location_id/edit' });
+  this.route('location', { path: '/locations/:location_id' });
 });
 
 export default Router;
