@@ -22,34 +22,46 @@ export default Ember.Controller.extend({
 		];
 		return !(fields.every(function(element){ return element !== '' && element !== null; }));
 	}.property('first_name', 'last_name', 'email', 'phone_number', 'mylsu_id', 'lsu_id'),
+	updateEmail: function() {
+		this.set('email', this.get('mylsu_id') + '@lsu.edu');
+	}.observes('mylsu_id'),
 	actions: {
 		createPerson: function() {
 			var controller = this;
-			var person_data = {
-				'first_name': this.first_name,
-				'last_name': this.last_name,
-				'email': this.email,
-				'phone_number': this.phone_number,
-				'mylsu_id': this.mylsu_id,
-				'lsu_id': this.lsu_id
-			};
-			store.create('people', person_data)
-				.fail(function(response){
-					swal({
-						title: "Yikes!",
-						text: response.responseJSON.message,
-						type: 'error'
+			var form = document.getElementById('add-person-form');
+			if (form.checkValidity()) {
+				var person_data = {
+					'first_name': this.first_name,
+					'last_name': this.last_name,
+					'email': this.email,
+					'phone_number': this.phone_number,
+					'mylsu_id': this.mylsu_id,
+					'lsu_id': this.lsu_id
+				};
+				store.create('people', person_data)
+					.fail(function(response){
+						swal({
+							title: "Yikes!",
+							text: response.responseJSON.message,
+							type: 'error'
+						});
+					})
+					.done(function(response){
+						controller.set('first_name', null);
+						controller.set('last_name', null);
+						controller.set('email', null);
+						controller.set('phone_number', null);
+						controller.set('mylsu_id', null);
+						controller.set('lsu_id', null);
+						controller.transitionTo('person', response.people[0].id);
 					});
-				})
-				.done(function(response){
-					controller.set('first_name', null);
-					controller.set('last_name', null);
-					controller.set('email', null);
-					controller.set('phone_number', null);
-					controller.set('mylsu_id', null);
-					controller.set('lsu_id', null);
-					controller.transitionTo('person', response.people[0].id);
+			} else {
+				swal({
+					title: "Yikes!",
+					text: "Looks like there's something wrong with the data you've entered. Check it and try again.",
+					type: "error"
 				});
+			}
 		}
 	}
 });

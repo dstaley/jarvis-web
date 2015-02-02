@@ -52,7 +52,7 @@
 	                		<td>{{moment checkout.checkout.checkout_date}}</td>
 	                		<td>{{ago checkout.checkout.due_date}}</td>
 	                		<td>{{#if checkout.return_date}}{{moment checkout.return_date}}{{/if}}</td>
-	                		<td>{{checkout.returned_by}}</td>
+	                		<td>{{checkout.returned_by.name}}</td>
 	                	</tr>
 	                {{/each}}
 	            </tbody>

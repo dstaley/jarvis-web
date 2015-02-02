@@ -51,7 +51,7 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-    ENV.API_BASE_URL = '//damp-gorge-2191.herokuapp.com';
+    ENV.API_BASE_URL = '//jarvis-api.local';
   }
 
   return ENV;

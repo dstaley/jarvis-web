@@ -5,7 +5,7 @@ export default Ember.Controller.extend({
 	name: null,
 	type: null,
 	location: null,
-	status: null,
+	status: "Available",
 	needs_permission: false,
 	permission_statement: null,
 	createDisabled: function() {
@@ -31,7 +31,7 @@ export default Ember.Controller.extend({
 				controller.set('name', null);
 				controller.set('type', null);
 				controller.set('location', null);
-				controller.set('status', null);
+				controller.set('status', "Available");
 				controller.set('needs_permission', false);
 				controller.set('permission_statement', null);
 				controller.transitionToRoute('kit', response.kits[0].id);

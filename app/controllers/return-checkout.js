@@ -22,7 +22,12 @@ export default Ember.Controller.extend({
 			var checkout_items = this.get('checkedItems').map(function(item){
 				return item.id;
 			});
-			store.update('checkout-items', {'checkout_items':checkout_items, 'available': this.get('makeAvailable')}).done(function(){
+			var checkout_data = {
+				'checkout_items': checkout_items,
+				'available': this.get('makeAvailable'),
+				'user': this.get('userAuthenticationService.currentUser').id
+			};
+			store.update('checkout-items', checkout_data).done(function(){
 				controller.transitionToRoute('index');
 			})
 			.fail(function(response){

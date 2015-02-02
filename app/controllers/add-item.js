@@ -4,11 +4,11 @@ import store from '../utils/jarvis';
 export default Ember.Controller.extend({
 	name: null,
 	type: null,
-	serial: null,
+	serial: "",
 	location: null,
 	kit: null,
-	condition: null,
-	status: null,
+	condition: "Good",
+	status: "Available",
 	last_price_paid: null,
 	createDisabled: function() {
 		var fields = [
@@ -37,11 +37,11 @@ export default Ember.Controller.extend({
 			store.create('items', item_data).done(function(response){
 				controller.set('name', null);
 				controller.set('type', null);
-				controller.set('serial', null);
+				controller.set('serial', "");
 				controller.set('location', null);
 				controller.set('kit', null);
-				controller.set('condition', null);
-				controller.set('status', null);
+				controller.set('condition', "Good");
+				controller.set('status', "Available");
 				controller.set('last_price_paid', null);
 				controller.transitionToRoute('item', response.items[0].id);
 			})

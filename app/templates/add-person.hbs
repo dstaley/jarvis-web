@@ -7,7 +7,7 @@
 <!-- /.row -->
 
 <div class="row">
-	<form class="form-horizontal" role="form">
+	<form class="form-horizontal" role="form" id="add-person-form">
 	  <div class="form-group">
 	    <label for="inputFirstName" class="col-sm-2 control-label">First Name</label>
 	    <div class="col-sm-3">
@@ -29,7 +29,7 @@
 	  <div class="form-group">
 	    <label for="inputLSUID" class="col-sm-2 control-label">LSU 89 Number</label>
 	    <div class="col-sm-3">
-	      {{input type="text" value=lsu_id classNames="form-control"}}
+	      {{input type="text" value=lsu_id classNames="form-control" pattern="89\d{7}"}}
 	    </div>
 	  </div>
 	  <div class="form-group">

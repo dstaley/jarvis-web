@@ -45,13 +45,15 @@
 	            <thead>
 	                <tr>
 	                    <th>Name</th>
+	                    <th>Status</th>
 	                    <th>Availability</th>
 	                </tr>
 	            </thead>
 	            <tbody>
-	                {{#each item in model.kit.items}}
+	                {{#each item in model.items.items}}
 	                	<tr>
 	                		<td>{{#link-to 'item' item.id}}{{item.name}}{{/link-to}}</td>
+	                		<td>{{#link-to 'item' item.id}}{{item.status}}{{/link-to}}</td>
 	                		<td>{{#link-to 'item' item.id}}{{#if item.available}}Available{{else}}Unavailable{{/if}}{{/link-to}}</td>
 	                	</tr>
 	                {{/each}}

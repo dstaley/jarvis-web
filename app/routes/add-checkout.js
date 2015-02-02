@@ -1,12 +1,8 @@
 import Ember from 'ember';
 import store from '../utils/jarvis';
+import ProtectedRouteMixin from '../mixins/protected-route';
 
-export default Ember.Route.extend({
-	beforeModel: function(){
-		if (!this.get('userAuthenticationService.currentUser')) {
-			this.replaceWith('login');
-		}
-	},
+export default Ember.Route.extend(ProtectedRouteMixin, {
 	model: function(params){
 		return Ember.RSVP.hash({
 			kit: store.find('kits', params.kit),
