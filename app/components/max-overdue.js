@@ -3,10 +3,11 @@ import store from '../utils/jarvis';
 
 export default Ember.Component.extend({
 	days: 0,
-	panel_color: function(){
-		if (this.get('days') <= 2) {
+	panelColor: function(){
+    var days = this.get('days');
+		if (days <= 2) {
 			return "panel-green";
-		} else if (this.get('days') < 5) {
+		} else if (days < 5) {
 			return "panel-yellow";
 		} else {
 			return "panel-red";
