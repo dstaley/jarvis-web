@@ -8,7 +8,7 @@
 						{{#if userAuthenticationService.currentUser}}
 							{{gravatar-image email=userAuthenticationService.currentUser.email size=150}}
 							<p class="name tooltip-sidebar-logout">
-								{{userAuthenticationService.currentUser.name}} <a {{action 'logout'}}<i class="fa fa-sign-out"></i></a>
+								{{userAuthenticationService.currentUser.name}} <a {{action 'logout'}}><i class="fa fa-sign-out"></i></a>
 							</p>
 						{{else}}
 							{{gravatar-image email='' size=150}}
@@ -53,7 +53,6 @@
 			<!-- /.sidebar-collapse -->
 		</div>
 		<!-- /.navbar-static-side -->
-	</nav>
 
 	<!-- Page Content -->
 	<div id="page-wrapper">

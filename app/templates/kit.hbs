@@ -4,12 +4,12 @@
         {{#if userAuthenticationService.currentUser}}
         {{#if model.kit.available}}
         	{{#link-to 'add-checkout' (query-params kit=model.kit.id)}}
-        		<button class="btn btn-primary pull-right">Checkout</buton>
+        		<button class="btn btn-primary pull-right">Checkout</button>
         	{{/link-to}}
         {{/if}}
         {{/if}}
         {{#link-to 'edit-kit' model.kit.id}}
-        	<button class="btn btn-primary pull-right">Edit</buton>
+        	<button class="btn btn-primary pull-right">Edit</button>
         {{/link-to}}
         </h1>
     </div>
