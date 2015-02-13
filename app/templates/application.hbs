@@ -1,63 +1,11 @@
 <div id="wrapper">
-		<div class="navbar-default sidebar" role="navigation">
-			<div class="sidebar-nav navbar-collapse">
-				<div id="iron">{{ironman-gif}}</div>
-				<ul class="nav" id="side-menu">
-					<li class="sidebar-brand" {{action 'showIronman'}}>JARVIS</li>
-					<li class="sidebar-user">
-						{{#if userAuthenticationService.currentUser}}
-							{{gravatar-image email=userAuthenticationService.currentUser.email size=150}}
-							<p class="name tooltip-sidebar-logout">
-								{{userAuthenticationService.currentUser.name}} <a {{action 'logout'}}><i class="fa fa-sign-out"></i></a>
-							</p>
-						{{else}}
-							{{gravatar-image email='' size=150}}
-							{{#link-to 'login'}}Please log in{{/link-to}}
-						{{/if}}
-					</li>
-					<li class="sidebar-search">
-						<div class="input-group custom-search-form">
-							{{input type="text" value=search classNames="form-control" action='search'}}
-							<span class="input-group-btn">
-								<button class="btn btn-default" type="button" {{action 'search'}}>
-									<i class="fa fa-search"></i>
-								</button>
-							</span>
-						</div>
-						<!-- /input-group -->
-					</li>
-					<li>
-						{{#link-to 'index'}}Dashboard{{/link-to}}
-					</li>
-					<li>
-						{{#link-to 'people'}}People{{/link-to}}
-					</li>
-					<li>
-						{{#link-to 'kits'}}Kits{{/link-to}}
-					</li>
-					{{#if userAuthenticationService.currentUser}}
-						{{#if userAuthenticationService.currentUser.is_admin}}
-							<li>
-								{{#link-to 'items'}}Items{{/link-to}}
-							</li>
-							<li>
-								{{#link-to 'users'}}Users{{/link-to}}
-							</li>
-							<li>
-								{{#link-to 'locations'}}Locations{{/link-to}}
-							</li>
-						{{/if}}
-					{{/if}}
-				</ul>
-			</div>
-			<!-- /.sidebar-collapse -->
-		</div>
-		<!-- /.navbar-static-side -->
+
+		{{ partial 'sidebar' }}
 
 	<!-- Page Content -->
 	<div id="page-wrapper">
 		<div class="container-fluid">
-			{{outlet}}
+			{{ outlet }}
 		</div>
 		<!-- /.container-fluid -->
 	</div>
