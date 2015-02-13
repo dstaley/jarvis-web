@@ -6,7 +6,8 @@
     "$",
     "moment",
     "md5",
-    "Sortable"
+    "Sortable",
+    "swal"
   ],
   "browser": true,
   "boss": true,
