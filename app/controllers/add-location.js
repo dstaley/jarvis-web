@@ -1,5 +1,5 @@
 import Ember from 'ember';
-import store from '../utils/jarvis';
+import jarvisAPI from '../utils/jarvis';
 
 export default Ember.Controller.extend({
   name: null,
@@ -11,7 +11,7 @@ export default Ember.Controller.extend({
         'name': this.name,
         'room': this.room
       };
-      store.create('locations', location_data)
+      jarvisAPI.create('locations', location_data)
       .then(function(response) {
         controller.set('name', null);
         controller.set('room', null);

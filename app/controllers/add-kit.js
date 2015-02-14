@@ -1,5 +1,5 @@
 import Ember from 'ember';
-import store from '../utils/jarvis';
+import jarvisAPI from '../utils/jarvis';
 
 export default Ember.Controller.extend({
   name: null,
@@ -27,7 +27,7 @@ export default Ember.Controller.extend({
         'needs_permission': this.needs_permission,
         'permission_statement': this.permission_statement
       };
-      store.create('kits', kit_data)
+      jarvisAPI.create('kits', kit_data)
       .then(function(response){
         controller.set('name', null);
         controller.set('type', null);

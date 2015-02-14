@@ -1,5 +1,5 @@
 import Ember from 'ember';
-import store from '../utils/jarvis';
+import jarvisAPI from '../utils/jarvis';
 
 function d(){
   switch (moment().format('d')){
@@ -32,7 +32,7 @@ export default Ember.Controller.extend({
     createCheckout: function(){
       var controller = this;
       if (this.get('availableItems').length === this.get('checkedItems').length) {
-        store.create('checkouts', {
+        jarvisAPI.create('checkouts', {
           'user': this.get('userAuthenticationService.currentUser').id,
           'kit': this.get('kit'),
           'person': this.get('person'),

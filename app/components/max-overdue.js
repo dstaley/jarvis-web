@@ -1,5 +1,5 @@
 import Ember from 'ember';
-import store from '../utils/jarvis';
+import jarvisAPI from '../utils/jarvis';
 
 export default Ember.Component.extend({
   days: 0,
@@ -15,7 +15,7 @@ export default Ember.Component.extend({
   }.property('days'),
   didInsertElement: function(){
     var component = this;
-    store.find('reports/overdue-items').then(function(response){
+    jarvisAPI.find('reports/overdue-items').then(function(response){
       component.set('days', response.max_overdue);
     });
   }

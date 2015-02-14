@@ -1,5 +1,5 @@
 import Ember from 'ember';
-import store from '../utils/jarvis';
+import jarvisAPI from '../utils/jarvis';
 
 export default Ember.Route.extend({
   beforeModel: function(){
@@ -8,6 +8,6 @@ export default Ember.Route.extend({
     }
   },
   model: function() {
-    return store.find('users');
+    return jarvisAPI.find('users');
   }
 });

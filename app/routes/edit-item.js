@@ -1,12 +1,12 @@
 import Ember from 'ember';
-import store from '../utils/jarvis';
+import jarvisAPI from '../utils/jarvis';
 
 export default Ember.Route.extend({
   model: function(params) {
     return Ember.RSVP.hash({
-      'item': store.find('items', params.item_id),
-      'kits': store.find('kits'),
-      'locations': store.find('locations')
+      'item': jarvisAPI.find('items', params.item_id),
+      'kits': jarvisAPI.find('kits'),
+      'locations': jarvisAPI.find('locations')
     });
   }
 });

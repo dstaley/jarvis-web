@@ -1,5 +1,5 @@
 import Ember from 'ember';
-import store from '../utils/jarvis';
+import jarvisAPI from '../utils/jarvis';
 
 export default Ember.Controller.extend({
   makeAvailable: false,
@@ -27,7 +27,7 @@ export default Ember.Controller.extend({
         'available': this.get('makeAvailable'),
         'user': this.get('userAuthenticationService.currentUser').id
       };
-      store.update('checkout-items', checkout_data)
+      jarvisAPI.update('checkout-items', checkout_data)
       .then(function(){
         controller.transitionToRoute('index');
       }, function(response) {

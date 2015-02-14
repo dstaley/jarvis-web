@@ -1,5 +1,5 @@
 import Ember from 'ember';
-import store from '../utils/jarvis';
+import jarvisAPI from '../utils/jarvis';
 
 export default Ember.Controller.extend({
   actions: {
@@ -10,7 +10,7 @@ export default Ember.Controller.extend({
         'email': this.get('content.email'),
         'is_admin': this.get('content.is_admin')
       };
-      store.update('users', this.get('content.id'), user_data)
+      jarvisAPI.update('users', this.get('content.id'), user_data)
       .then(function(response){
         controller.transitionToRoute('user', response.id);
       }, function(response){

@@ -1,5 +1,5 @@
 import Ember from 'ember';
-import store from '../utils/jarvis';
+import jarvisAPI from '../utils/jarvis';
 
 export default Ember.Controller.extend({
   name: null,
@@ -34,7 +34,7 @@ export default Ember.Controller.extend({
         'status': this.status,
         'last_price_paid': this.last_price_paid
       };
-      store.create('items', item_data)
+      jarvisAPI.create('items', item_data)
       .then(function(response){
         controller.set('name', null);
         controller.set('type', null);

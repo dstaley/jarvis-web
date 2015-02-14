@@ -1,5 +1,5 @@
 import Ember from 'ember';
-import store from '../utils/jarvis';
+import jarvisAPI from '../utils/jarvis';
 
 export default Ember.Route.extend({
   queryParams: {
@@ -8,6 +8,6 @@ export default Ember.Route.extend({
     }
   },
   model: function(params){
-    return store.find('search', { 'q': params.q });
+    return jarvisAPI.find('search', { 'q': params.q });
   }
 });

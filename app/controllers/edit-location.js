@@ -1,5 +1,5 @@
 import Ember from 'ember';
-import store from '../utils/jarvis';
+import jarvisAPI from '../utils/jarvis';
 
 export default Ember.Controller.extend({
   actions: {
@@ -9,7 +9,7 @@ export default Ember.Controller.extend({
         'name': this.get('content.location.name'),
         'room': this.get('content.location.room.id')
       };
-      store.update('locations', this.get('content.location.id'), location_data)
+      jarvisAPI.update('locations', this.get('content.location.id'), location_data)
       .then(function(response){
         controller.transitionToRoute('location', response.id);
       }, function(response) {

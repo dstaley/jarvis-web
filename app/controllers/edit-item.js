@@ -1,5 +1,5 @@
 import Ember from 'ember';
-import store from '../utils/jarvis';
+import jarvisAPI from '../utils/jarvis';
 
 function get_id_if_object(d){
   if (typeof d === 'object') {
@@ -23,7 +23,7 @@ export default Ember.Controller.extend({
         'status': this.get('content.item.status'),
         'last_price_paid': this.get('content.item.last_price_paid')
       };
-      store.update('items', this.get('content.item.id'), item_data)
+      jarvisAPI.update('items', this.get('content.item.id'), item_data)
       .then(function(response){
         controller.set('name', null);
         controller.set('type', null);

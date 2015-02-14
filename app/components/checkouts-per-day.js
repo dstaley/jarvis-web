@@ -1,5 +1,5 @@
 import Ember from 'ember';
-import store from '../utils/jarvis';
+import jarvisAPI from '../utils/jarvis';
 
 export default Ember.Component.extend({
   data: [],
@@ -24,7 +24,7 @@ export default Ember.Component.extend({
   },
   didInsertElement: function(){
     var component = this;
-    store.find('reports/average-checkouts-per-day').then(function(response){
+    jarvisAPI.find('reports/average-checkouts-per-day').then(function(response){
       component.set('data', [{name:'Checkouts', data: response.data}]);
     });
   }

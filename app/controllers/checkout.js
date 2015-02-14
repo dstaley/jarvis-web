@@ -1,5 +1,5 @@
 import Ember from 'ember';
-import store from '../utils/jarvis';
+import jarvisAPI from '../utils/jarvis';
 
 export default Ember.Controller.extend({
   allReturned: function(){
@@ -11,7 +11,7 @@ export default Ember.Controller.extend({
   actions: {
     renew: function(checkout_id){
       var controller = this;
-      store.update('checkouts/'+checkout_id, {})
+      jarvisAPI.update('checkouts/'+checkout_id, {})
       .then(function(){
         controller.get('target').send('reload');
       }, function(response) {

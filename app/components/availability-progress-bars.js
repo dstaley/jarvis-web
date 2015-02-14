@@ -1,11 +1,11 @@
 import Ember from 'ember';
-import store from '../utils/jarvis';
+import jarvisAPI from '../utils/jarvis';
 
 export default Ember.Component.extend({
   kits: [],
   didInsertElement: function(){
     var component = this;
-    store.find('reports/kits').then(function(response){
+    jarvisAPI.find('reports/kits').then(function(response){
       var k = response.kits.map(function(kit){
         var priority = "";
         var ratio = (kit.available/(kit.available + kit.unavailable));

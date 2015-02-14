@@ -1,5 +1,5 @@
 import Ember from 'ember';
-import store from '../utils/jarvis';
+import jarvisAPI from '../utils/jarvis';
 
 export default Ember.Object.extend({
   currentUser: null,
@@ -11,6 +11,6 @@ export default Ember.Object.extend({
     this.set('currentUser', null);
   },
   users: function(){
-    return store.find('users');
+    return jarvisAPI.find('users');
   }.property()
 });

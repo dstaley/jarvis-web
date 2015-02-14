@@ -1,11 +1,11 @@
 import Ember from 'ember';
-import store from '../utils/jarvis';
+import jarvisAPI from '../utils/jarvis';
 
 export default Ember.Route.extend({
   model: function(params) {
     return Ember.RSVP.hash({
-      checkout: store.find('checkouts', params.checkout_id),
-      checkout_items: store.find('checkout-items', { 'checkout': params.checkout_id })
+      checkout: jarvisAPI.find('checkouts', params.checkout_id),
+      checkout_items: jarvisAPI.find('checkout-items', { 'checkout': params.checkout_id })
     });
   },
   actions: {

@@ -1,5 +1,5 @@
 import Ember from 'ember';
-import store from '../utils/jarvis';
+import jarvisAPI from '../utils/jarvis';
 
 export default Ember.Controller.extend({
   actions: {
@@ -13,7 +13,7 @@ export default Ember.Controller.extend({
         'mylsu_id': this.get('content.mylsu_id'),
         'lsu_id': this.get('content.lsu_id')
       };
-      store.update('people', this.get('content.id'), person_data)
+      jarvisAPI.update('people', this.get('content.id'), person_data)
       .then(function(response) {
         controller.set('first_name', null);
         controller.set('last_name', null);

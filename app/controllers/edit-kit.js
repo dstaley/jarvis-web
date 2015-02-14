@@ -1,5 +1,5 @@
 import Ember from 'ember';
-import store from '../utils/jarvis';
+import jarvisAPI from '../utils/jarvis';
 
 export default Ember.Controller.extend({
   actions: {
@@ -14,7 +14,7 @@ export default Ember.Controller.extend({
         'needs_permission': this.get('content.kit.needs_permission'),
         'permission_statement': this.get('content.kit.permission_statement')
       };
-      store.update('kits', this.get('content.kit.id'), kit_data)
+      jarvisAPI.update('kits', this.get('content.kit.id'), kit_data)
       .then(function(response){
         controller.set('name', null);
         controller.set('type', null);

@@ -1,5 +1,5 @@
 import Ember from 'ember';
-import store from '../utils/jarvis';
+import jarvisAPI from '../utils/jarvis';
 
 export default Ember.Controller.extend({
   name: null,
@@ -13,7 +13,7 @@ export default Ember.Controller.extend({
         'email': this.email,
         'is_admin': this.is_admin
       };
-      store.create('users', user_data)
+      jarvisAPI.create('users', user_data)
       .then(function(response){
         controller.set('name', null);
         controller.set('email', null);

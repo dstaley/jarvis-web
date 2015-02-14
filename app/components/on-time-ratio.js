@@ -1,5 +1,5 @@
 import Ember from 'ember';
-import store from '../utils/jarvis';
+import jarvisAPI from '../utils/jarvis';
 
 export default Ember.Component.extend({
   ratio: 0,
@@ -14,7 +14,7 @@ export default Ember.Component.extend({
   }.property('ratio'),
   didInsertElement: function(){
     var component = this;
-    store.find('reports/on-time-ratio').then(function(response){
+    jarvisAPI.find('reports/on-time-ratio').then(function(response){
       component.set('ratio', (response.metrics.on_time/response.metrics.total) * 100);
     });
   }

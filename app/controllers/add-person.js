@@ -1,5 +1,5 @@
 import Ember from 'ember';
-import store from '../utils/jarvis';
+import jarvisAPI from '../utils/jarvis';
 
 export default Ember.Controller.extend({
   first_name: null,
@@ -38,7 +38,7 @@ export default Ember.Controller.extend({
           'mylsu_id': this.mylsu_id,
           'lsu_id': this.lsu_id
         };
-        store.create('people', person_data)
+        jarvisAPI.create('people', person_data)
           .then(function(response){
             controller.set('first_name', null);
             controller.set('last_name', null);
