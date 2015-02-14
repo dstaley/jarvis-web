@@ -8,7 +8,7 @@ export default Ember.Controller.extend({
 	phone_number: null,
 	mylsu_id: null,
 	lsu_id: null,
-	url: function() { 
+	url: function() {
 		return true;
 	}.property(),
 	createDisabled: function() {
@@ -39,14 +39,7 @@ export default Ember.Controller.extend({
 					'lsu_id': this.lsu_id
 				};
 				store.create('people', person_data)
-					.fail(function(response){
-						swal({
-							title: "Yikes!",
-							text: response.responseJSON.message,
-							type: 'error'
-						});
-					})
-					.done(function(response){
+					.then(function(response){
 						controller.set('first_name', null);
 						controller.set('last_name', null);
 						controller.set('email', null);
@@ -54,7 +47,13 @@ export default Ember.Controller.extend({
 						controller.set('mylsu_id', null);
 						controller.set('lsu_id', null);
 						controller.transitionTo('person', response.people[0].id);
-					});
+					}, function(error){
+            swal({
+              title: "Yikes!",
+              text: error.jqXHR.responseJSON.message,
+              type: 'error'
+            });
+          });
 			} else {
 				swal({
 					title: "Yikes!",

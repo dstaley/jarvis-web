@@ -10,16 +10,15 @@ export default Ember.Controller.extend({
 				'room': this.get('content.location.room.id')
 			};
 			store.update('locations', this.get('content.location.id'), location_data)
-			.done(function(response){
+			.then(function(response){
 				controller.transitionToRoute('location', response.id);
-			})
-			.fail(function(response){
-				swal({
-					title: "Yikes!",
-					text: response.responseJSON.message,
-					type: 'error'
-				});
-			});
+			}, function(response) {
+        swal({
+          title: "Yikes!",
+          text: response.responseJSON.message,
+          type: 'error'
+        });
+      });
 		}
 	}
 });

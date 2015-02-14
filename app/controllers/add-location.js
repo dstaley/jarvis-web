@@ -12,18 +12,17 @@ export default Ember.Controller.extend({
 				'room': this.room
 			};
 			store.create('locations', location_data)
-			.done(function(response){
+			.then(function(response) {
 				controller.set('name', null);
 				controller.set('room', null);
 				controller.transitionToRoute('location', response.locations[0].id);
-			})
-			.fail(function(response){
-				swal({
-					title: "Yikes!",
-					text: response.responseJSON.message,
-					type: 'error'
-				});
-			});
+			}, function(response) {
+        swal({
+          title: "Yikes!",
+          text: response.responseJSON.message,
+          type: 'error'
+        });
+      });
 		}
 	}
 });

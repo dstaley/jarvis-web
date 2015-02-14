@@ -27,16 +27,16 @@ export default Ember.Controller.extend({
 				'available': this.get('makeAvailable'),
 				'user': this.get('userAuthenticationService.currentUser').id
 			};
-			store.update('checkout-items', checkout_data).done(function(){
+			store.update('checkout-items', checkout_data)
+      .then(function(){
 				controller.transitionToRoute('index');
-			})
-			.fail(function(response){
-				swal({
-					title: "Yikes!",
-					text: response.responseJSON.message,
-					type: 'error'
-				});
-			});
+			}, function(response) {
+        swal({
+          title: "Yikes!",
+          text: response.responseJSON.message,
+          type: 'error'
+        });
+      });
 		}
 	}
 });

@@ -13,7 +13,8 @@ export default Ember.Controller.extend({
 				'mylsu_id': this.get('content.mylsu_id'),
 				'lsu_id': this.get('content.lsu_id')
 			};
-			store.update('people', this.get('content.id'), person_data).done(function(response){
+			store.update('people', this.get('content.id'), person_data)
+      .then(function(response) {
 				controller.set('first_name', null);
 				controller.set('last_name', null);
 				controller.set('email', null);
@@ -21,14 +22,13 @@ export default Ember.Controller.extend({
 				controller.set('mylsu_id', null);
 				controller.set('lsu_id', null);
 				controller.transitionToRoute('person', response.id);
-			})
-			.fail(function(response){
-				swal({
-					title: "Yikes!",
-					text: response.responseJSON.message,
-					type: 'error'
-				});
-			});
+			}, function(response) {
+        swal({
+          title: "Yikes!",
+          text: response.responseJSON.message,
+          type: 'error'
+        });
+      });
 		}
 	}
 });

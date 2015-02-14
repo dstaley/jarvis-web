@@ -34,7 +34,8 @@ export default Ember.Controller.extend({
 				'status': this.status,
 				'last_price_paid': this.last_price_paid
 			};
-			store.create('items', item_data).done(function(response){
+			store.create('items', item_data)
+      .then(function(response){
 				controller.set('name', null);
 				controller.set('type', null);
 				controller.set('serial', "");
@@ -44,14 +45,13 @@ export default Ember.Controller.extend({
 				controller.set('status', "Available");
 				controller.set('last_price_paid', null);
 				controller.transitionToRoute('item', response.items[0].id);
-			})
-			.fail(function(response){
-				swal({
-					title: "Yikes!",
-					text: response.responseJSON.message,
-					type: 'error'
-				});
-			});
+			}, function(error){
+        swal({
+          title: "Yikes!",
+          text: error.jqXHR.responseJSON.message,
+          type: 'error'
+        });
+      });
 		}
 	}
 });

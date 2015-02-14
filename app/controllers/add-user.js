@@ -14,19 +14,18 @@ export default Ember.Controller.extend({
 				'is_admin': this.is_admin
 			};
 			store.create('users', user_data)
-			.done(function(response){
+			.then(function(response){
 				controller.set('name', null);
 				controller.set('email', null);
 				controller.set('is_admin', false);
 				controller.transitionToRoute('user', response.users[0].id);
-			})
-			.fail(function(response){
-				swal({
-					title: "Yikes!",
-					text: response.responseJSON.message,
-					type: 'error'
-				});
-			});
+			}, function(response) {
+        swal({
+          title: "Yikes!",
+          text: response.responseJSON.message,
+          type: 'error'
+        });
+      });
 		}
 	}
 });

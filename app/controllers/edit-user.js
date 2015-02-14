@@ -11,16 +11,15 @@ export default Ember.Controller.extend({
 				'is_admin': this.get('content.is_admin')
 			};
 			store.update('users', this.get('content.id'), user_data)
-			.done(function(response){
+			.then(function(response){
 				controller.transitionToRoute('user', response.id);
-			})
-			.fail(function(response){
-				swal({
-					title: "Yikes!",
-					text: response.responseJSON.message,
-					type: 'error'
-				});
-			});
+			}, function(response){
+        swal({
+          title: "Yikes!",
+          text: response.responseJSON.message,
+          type: 'error'
+        });
+      });
 		}
 	}
 });

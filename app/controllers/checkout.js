@@ -11,16 +11,16 @@ export default Ember.Controller.extend({
 	actions: {
 		renew: function(checkout_id){
 			var controller = this;
-			store.update('checkouts/'+checkout_id, {}).done(function(){
+			store.update('checkouts/'+checkout_id, {})
+      .then(function(){
 				controller.get('target').send('reload');
-			})
-			.fail(function(response){
-				swal({
-					title: "Yikes!",
-					text: response.responseJSON.message,
-					type: 'error'
-				});
-			});
+			}, function(response) {
+        swal({
+          title: "Yikes!",
+          text: response.responseJSON.message,
+          type: 'error'
+        });
+      });
 		}
 	}
 });

@@ -38,19 +38,18 @@ export default Ember.Controller.extend({
 					'person': this.get('person'),
 					'due_date': moment(this.get('dueDate')).format('YYYY-MM-DD'),
 					'items': this.get('checkedItems').map(function(item){return item.id;})}
-				).done(function(response){
+				).then(function(response) {
 					controller.set('kit', null);
 					controller.set('person', null);
 					controller.set('dueDate', d());
 					controller.transitionToRoute('checkout', response.checkout.id);
-				})
-				.fail(function(response){
-					swal({
-						title: "Yikes!",
-						text: response.responseJSON.message,
-						type: 'error'
-					});
-				});
+				}, function(error){
+          swal({
+            title: "Yikes!",
+            text: error.jqXHR.responseJSON.message,
+            type: 'error'
+          });
+        })
 			} else {
 				alert('You must select all available items.');
 			}
