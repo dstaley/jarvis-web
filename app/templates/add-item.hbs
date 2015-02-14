@@ -7,59 +7,59 @@
 <!-- /.row -->
 
 <div class="row">
-	<form class="form-horizontal" role="form">
-	  <div class="form-group">
-	    <label for="inputFirstName" class="col-sm-2 control-label">Short Name</label>
-	    <div class="col-sm-3">
-	      {{input type="text" value=name classNames="form-control"}}
-	    </div>
-	  </div>
-	  <div class="form-group">
-	    <label for="inputLastName" class="col-sm-2 control-label">Item Name (the long, complicated one)</label>
-	    <div class="col-sm-3">
-	      {{input type="text" value=type classNames="form-control"}}
-	    </div>
-	  </div>
-	  <div class="form-group">
-	    <label for="inputLastName" class="col-sm-2 control-label">Serial</label>
-	    <div class="col-sm-3">
-	      {{input type="text" value=serial classNames="form-control"}}
-	    </div>
-	  </div>
-	  <div class="form-group">
-	    <label for="inputLastName" class="col-sm-2 control-label">Location</label>
-	    <div class="col-sm-3">
-	      {{view "select" content=model.locations.locations optionValuePath="content.id" optionLabelPath="content.name" value=location prompt="Please choose location" classNames="form-control"}}
-	    </div>
-	  </div>
-	  <div class="form-group">
-	    <label for="inputLastName" class="col-sm-2 control-label">Kit</label>
-	    <div class="col-sm-3">
-	      {{select-2 content=model.kits.kits optionLabelPath="name" optionValuePath="id" value=kit placeholder="No Kit"}}
-	    </div>
-	  </div>
-	  <div class="form-group">
-	    <label for="inputLastName" class="col-sm-2 control-label">Condition</label>
-	    <div class="col-sm-3">
-	      {{input type="text" value=condition classNames="form-control"}}
-	    </div>
-	  </div>
-	  <div class="form-group">
-	    <label for="inputLastName" class="col-sm-2 control-label">Status</label>
-	    <div class="col-sm-3">
-	      {{input type="text" value=status classNames="form-control"}}
-	    </div>
-	  </div>
-	  <div class="form-group">
-	    <label for="inputLastName" class="col-sm-2 control-label">Last Price Paid</label>
-	    <div class="col-sm-3">
-	      {{input type="text" value=last_price_paid classNames="form-control"}}
-	    </div>
-	  </div>
-	  <div class="form-group">
-	    <div class="col-sm-offset-2 col-sm-10">
-	      <button {{bind-attr disabled=createDisabled}} type="submit" class="btn btn-primary" {{action 'createItem'}}>Create</button>
-	    </div>
-	  </div>
-	</form>
+  <form class="form-horizontal" role="form">
+    <div class="form-group">
+      <label for="inputFirstName" class="col-sm-2 control-label">Short Name</label>
+      <div class="col-sm-3">
+        {{input type="text" value=name classNames="form-control"}}
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputLastName" class="col-sm-2 control-label">Item Name (the long, complicated one)</label>
+      <div class="col-sm-3">
+        {{input type="text" value=type classNames="form-control"}}
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputLastName" class="col-sm-2 control-label">Serial</label>
+      <div class="col-sm-3">
+        {{input type="text" value=serial classNames="form-control"}}
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputLastName" class="col-sm-2 control-label">Location</label>
+      <div class="col-sm-3">
+        {{view "select" content=model.locations.locations optionValuePath="content.id" optionLabelPath="content.name" value=location prompt="Please choose location" classNames="form-control"}}
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputLastName" class="col-sm-2 control-label">Kit</label>
+      <div class="col-sm-3">
+        {{select-2 content=model.kits.kits optionLabelPath="name" optionValuePath="id" value=kit placeholder="No Kit"}}
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputLastName" class="col-sm-2 control-label">Condition</label>
+      <div class="col-sm-3">
+        {{input type="text" value=condition classNames="form-control"}}
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputLastName" class="col-sm-2 control-label">Status</label>
+      <div class="col-sm-3">
+        {{input type="text" value=status classNames="form-control"}}
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputLastName" class="col-sm-2 control-label">Last Price Paid</label>
+      <div class="col-sm-3">
+        {{input type="text" value=last_price_paid classNames="form-control"}}
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <button {{bind-attr disabled=createDisabled}} type="submit" class="btn btn-primary" {{action 'createItem'}}>Create</button>
+      </div>
+    </div>
+  </form>
 </div>

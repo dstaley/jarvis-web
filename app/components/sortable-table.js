@@ -1,7 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-	didInsertElement: function(){
-		Sortable.init();
-	}
+  didInsertElement: function(){
+    Sortable.init();
+  }
 });

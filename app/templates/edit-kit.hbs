@@ -7,62 +7,62 @@
 <!-- /.row -->
 
 <div class="row">
-	<form class="form-horizontal" role="form">
-	  <div class="form-group">
-	    <label for="inputFirstName" class="col-sm-2 control-label">Name</label>
-	    <div class="col-sm-3">
-	      {{input type="text" value=model.kit.name classNames="form-control"}}
-	    </div>
-	  </div>
-	  <div class="form-group">
-	    <label for="inputLastName" class="col-sm-2 control-label">Type</label>
-	    <div class="col-sm-3">
-	      {{input type="text" value=model.kit.type classNames="form-control"}}
-	    </div>
-	  </div>
-	  <div class="form-group">
-	    <label for="inputLastName" class="col-sm-2 control-label">Status</label>
-	    <div class="col-sm-3">
-	      {{input type="text" value=model.kit.status classNames="form-control"}}
-	    </div>
-	  </div>
-	  <div class="form-group">
-	    <label for="inputLastName" class="col-sm-2 control-label">Location</label>
-	    <div class="col-sm-3">
-	      {{view "select" content=model.locations.locations optionValuePath="content.id" optionLabelPath="content.name" value=model.kit.location.id prompt="Please select a location" classNames="form-control"}}
-	    </div>
-	  </div>
-	  <div class="form-group">
-	  	<div class="col-sm-offset-2 col-sm-10">
-	  		<div class="checkbox">
-	  			<label>
-	  				{{input type="checkbox" name="needs_permission" checked=model.kit.needs_permission}} Needs Permission
-	  			</label>
-	  		</div>
-	  	</div>
-	  </div>
+  <form class="form-horizontal" role="form">
+    <div class="form-group">
+      <label for="inputFirstName" class="col-sm-2 control-label">Name</label>
+      <div class="col-sm-3">
+        {{input type="text" value=model.kit.name classNames="form-control"}}
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputLastName" class="col-sm-2 control-label">Type</label>
+      <div class="col-sm-3">
+        {{input type="text" value=model.kit.type classNames="form-control"}}
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputLastName" class="col-sm-2 control-label">Status</label>
+      <div class="col-sm-3">
+        {{input type="text" value=model.kit.status classNames="form-control"}}
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputLastName" class="col-sm-2 control-label">Location</label>
+      <div class="col-sm-3">
+        {{view "select" content=model.locations.locations optionValuePath="content.id" optionLabelPath="content.name" value=model.kit.location.id prompt="Please select a location" classNames="form-control"}}
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <div class="checkbox">
+          <label>
+            {{input type="checkbox" name="needs_permission" checked=model.kit.needs_permission}} Needs Permission
+          </label>
+        </div>
+      </div>
+    </div>
 
-	  {{#if model.kit.needs_permission}}
-	  	<div class="form-group">
-	  	  <label for="inputLastName" class="col-sm-2 control-label">Permission Statement</label>
-	  	  <div class="col-sm-3">
-	  	    {{textarea value=model.kit.permission_statement cols="80" rows="6" classNames="form-control"}}
-	  	  </div>
-	  	</div>
-	  {{/if}}
-	  <div class="form-group">
-	  	<div class="col-sm-offset-2 col-sm-10">
-	  		<div class="checkbox">
-	  			<label>
-	  				{{input type="checkbox" name="available" checked=model.kit.available}} Available for checkout
-	  			</label>
-	  		</div>
-	  	</div>
-	  </div>
-	  <div class="form-group">
-	    <div class="col-sm-offset-2 col-sm-10">
-	      <button type="submit" class="btn btn-primary" {{action 'updateKit'}}>Update</button>
-	    </div>
-	  </div>
-	</form>
+    {{#if model.kit.needs_permission}}
+      <div class="form-group">
+        <label for="inputLastName" class="col-sm-2 control-label">Permission Statement</label>
+        <div class="col-sm-3">
+          {{textarea value=model.kit.permission_statement cols="80" rows="6" classNames="form-control"}}
+        </div>
+      </div>
+    {{/if}}
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <div class="checkbox">
+          <label>
+            {{input type="checkbox" name="available" checked=model.kit.available}} Available for checkout
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <button type="submit" class="btn btn-primary" {{action 'updateKit'}}>Update</button>
+      </div>
+    </div>
+  </form>
 </div>

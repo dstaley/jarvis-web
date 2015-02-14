@@ -1,38 +1,38 @@
 <div class="row">
-	<div class="col-lg-12">
-		<h1 class="page-header">
-			Overdue Items
-		</h1>
-	</div>
-	<!-- /.col-lg-12 -->
+  <div class="col-lg-12">
+    <h1 class="page-header">
+      Overdue Items
+    </h1>
+  </div>
+  <!-- /.col-lg-12 -->
 </div>
 <!-- /.row -->
 
 <div class="row">
-	<div class="col-lg-12">
-		<div class="table-responsive">
-			{{#sortable-table}}
-				<thead>
-					<tr>
-						<th>Person</th>
-						<th>Kit</th>
-						<th>Item</th>
-						<th>Number of Days Overdue</th>
-					</tr>
-				</thead>
-				<tbody>
-					{{#each checkout in model.items}}
-						<tr>
-							<td>{{#link-to 'checkout' checkout.checkout.id}}{{checkout.checkout.patron.name}}{{/link-to}}</td>
-							<td>{{#link-to 'checkout' checkout.checkout.id}}{{checkout.checkout.kit.name}}{{/link-to}}</td>
-							<td>{{#link-to 'checkout' checkout.checkout.id}}{{checkout.item.name}}{{/link-to}}</td>
-							<td>{{#link-to 'checkout' checkout.checkout.id}}{{number-of-days-since checkout.checkout.due_date}}{{/link-to}}</td>
-						</tr>
-					{{/each}}
-				</tbody>
-			{{/sortable-table}}
-		</div>
-		<!-- /.table-responsive -->
-	</div>
-	<!-- /.col-lg-12 -->
+  <div class="col-lg-12">
+    <div class="table-responsive">
+      {{#sortable-table}}
+        <thead>
+          <tr>
+            <th>Person</th>
+            <th>Kit</th>
+            <th>Item</th>
+            <th>Number of Days Overdue</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each checkout in model.items}}
+            <tr>
+              <td>{{#link-to 'checkout' checkout.checkout.id}}{{checkout.checkout.patron.name}}{{/link-to}}</td>
+              <td>{{#link-to 'checkout' checkout.checkout.id}}{{checkout.checkout.kit.name}}{{/link-to}}</td>
+              <td>{{#link-to 'checkout' checkout.checkout.id}}{{checkout.item.name}}{{/link-to}}</td>
+              <td>{{#link-to 'checkout' checkout.checkout.id}}{{number-of-days-since checkout.checkout.due_date}}{{/link-to}}</td>
+            </tr>
+          {{/each}}
+        </tbody>
+      {{/sortable-table}}
+    </div>
+    <!-- /.table-responsive -->
+  </div>
+  <!-- /.col-lg-12 -->
 </div>

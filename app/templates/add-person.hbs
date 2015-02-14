@@ -7,47 +7,47 @@
 <!-- /.row -->
 
 <div class="row">
-	<form class="form-horizontal" role="form" id="add-person-form">
-	  <div class="form-group">
-	    <label for="inputFirstName" class="col-sm-2 control-label">First Name</label>
-	    <div class="col-sm-3">
-	      {{input type="text" value=first_name classNames="form-control"}}
-	    </div>
-	  </div>
-	  <div class="form-group">
-	    <label for="inputLastName" class="col-sm-2 control-label">Last Name</label>
-	    <div class="col-sm-3">
-	      {{input type="text" value=last_name classNames="form-control"}}
-	    </div>
-	  </div>
-	  <div class="form-group">
-	    <label for="inputMyLSUID" class="col-sm-2 control-label">myLSU ID (mtiger1)</label>
-	    <div class="col-sm-3">
-	      {{input type="text" value=mylsu_id classNames="form-control"}}
-	    </div>
-	  </div>
-	  <div class="form-group">
-	    <label for="inputLSUID" class="col-sm-2 control-label">LSU 89 Number</label>
-	    <div class="col-sm-3">
-	      {{input type="text" value=lsu_id classNames="form-control" pattern="89\d{7}"}}
-	    </div>
-	  </div>
-	  <div class="form-group">
-	    <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
-	    <div class="col-sm-3">
-	      {{input type="email" value=email classNames="form-control"}}
-	    </div>
-	  </div>
-	  <div class="form-group">
-	    <label for="inputPhoneNumber" class="col-sm-2 control-label">Phone Number</label>
-	    <div class="col-sm-3">
-	      {{input type="text" value=phone_number classNames="form-control"}}
-	    </div>
-	  </div>
-	  <div class="form-group">
-	    <div class="col-sm-offset-2 col-sm-10">
-	      <button {{bind-attr disabled=createDisabled}} type="submit" class="btn btn-primary" {{action 'createPerson'}}>Create</button>
-	    </div>
-	  </div>
-	</form>
+  <form class="form-horizontal" role="form" id="add-person-form">
+    <div class="form-group">
+      <label for="inputFirstName" class="col-sm-2 control-label">First Name</label>
+      <div class="col-sm-3">
+        {{input type="text" value=first_name classNames="form-control"}}
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputLastName" class="col-sm-2 control-label">Last Name</label>
+      <div class="col-sm-3">
+        {{input type="text" value=last_name classNames="form-control"}}
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputMyLSUID" class="col-sm-2 control-label">myLSU ID (mtiger1)</label>
+      <div class="col-sm-3">
+        {{input type="text" value=mylsu_id classNames="form-control"}}
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputLSUID" class="col-sm-2 control-label">LSU 89 Number</label>
+      <div class="col-sm-3">
+        {{input type="text" value=lsu_id classNames="form-control" pattern="89\d{7}"}}
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+      <div class="col-sm-3">
+        {{input type="email" value=email classNames="form-control"}}
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputPhoneNumber" class="col-sm-2 control-label">Phone Number</label>
+      <div class="col-sm-3">
+        {{input type="text" value=phone_number classNames="form-control"}}
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <button {{bind-attr disabled=createDisabled}} type="submit" class="btn btn-primary" {{action 'createPerson'}}>Create</button>
+      </div>
+    </div>
+  </form>
 </div>

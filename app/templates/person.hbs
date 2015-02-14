@@ -2,7 +2,7 @@
     <div class="col-lg-12">
         <h1 class="page-header">{{person.first_name}} {{person.last_name}}
         {{#link-to 'edit-person' person.id}}
-        	<button class="btn btn-primary pull-right">Edit</button>
+          <button class="btn btn-primary pull-right">Edit</button>
         {{/link-to}}
         </h1>
     </div>
@@ -11,13 +11,13 @@
 <!-- /.row -->
 
 <div class="row">
-	<div class="col-lg-12">
-	    <h3>Email: {{person.email}}</h3>
-	    <h3>Phone Number: {{person.phone_number}}</h3>
-	    <h3>LSU ID: {{person.lsu_id}}</h3>
-	    <h3>myLSU ID: {{person.mylsu_id}}</h3>
-	</div>
-	<!-- /.col-lg-12 -->
+  <div class="col-lg-12">
+      <h3>Email: {{person.email}}</h3>
+      <h3>Phone Number: {{person.phone_number}}</h3>
+      <h3>LSU ID: {{person.lsu_id}}</h3>
+      <h3>myLSU ID: {{person.mylsu_id}}</h3>
+  </div>
+  <!-- /.col-lg-12 -->
 </div>
 
 <div class="row">
@@ -29,28 +29,28 @@
 <!-- /.row -->
 
 <div class="row">
-	<div class="col-lg-12">
-	    <div class="table-responsive">
-	        {{#sortable-table}}
-	            <thead>
-	                <tr>
-	                    <th>Kit</th>
-	                    <th>Checkout Date</th>
-	                    <th>Due Date</th>
-	                </tr>
-	            </thead>
-	            <tbody>
-	                {{#each checkout in checkouts.checkouts}}
-	                	<tr>
-	                		<td>{{#link-to 'checkout' checkout.id}}{{checkout.kit.name}}{{/link-to}}</td>
-	                		<td>{{moment checkout.checkout_date}}</td>
-	                		<td>{{ago checkout.due_date}}</td>
-	                	</tr>
-	                {{/each}}
-	            </tbody>
-	        {{/sortable-table}}
-	    </div>
-	    <!-- /.table-responsive -->
-	</div>
-	<!-- /.col-lg-12 -->
+  <div class="col-lg-12">
+      <div class="table-responsive">
+          {{#sortable-table}}
+              <thead>
+                  <tr>
+                      <th>Kit</th>
+                      <th>Checkout Date</th>
+                      <th>Due Date</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  {{#each checkout in checkouts.checkouts}}
+                    <tr>
+                      <td>{{#link-to 'checkout' checkout.id}}{{checkout.kit.name}}{{/link-to}}</td>
+                      <td>{{moment checkout.checkout_date}}</td>
+                      <td>{{ago checkout.due_date}}</td>
+                    </tr>
+                  {{/each}}
+              </tbody>
+          {{/sortable-table}}
+      </div>
+      <!-- /.table-responsive -->
+  </div>
+  <!-- /.col-lg-12 -->
 </div>

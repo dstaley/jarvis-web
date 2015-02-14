@@ -7,23 +7,23 @@
 <!-- /.row -->
 
 <div class="row">
-	<form class="form-horizontal" role="form">
-	  <div class="form-group">
-	    <label for="inputFirstName" class="col-sm-2 control-label">Name</label>
-	    <div class="col-sm-3">
-	      {{input type="text" value=model.location.name classNames="form-control"}}
-	    </div>
-	  </div>
-	  <div class="form-group">
-	    <label for="inputLastName" class="col-sm-2 control-label">Room</label>
-	    <div class="col-sm-3">
-	      {{view "select" content=model.rooms.rooms optionValuePath="content.id" optionLabelPath="content.name" value=model.location.room.id prompt="Please select a room" classNames="form-control"}}
-	    </div>
-	  </div>
-	  <div class="form-group">
-	    <div class="col-sm-offset-2 col-sm-10">
-	      <button type="submit" class="btn btn-primary" {{action 'updateLocation'}}>Update</button>
-	    </div>
-	  </div>
-	</form>
+  <form class="form-horizontal" role="form">
+    <div class="form-group">
+      <label for="inputFirstName" class="col-sm-2 control-label">Name</label>
+      <div class="col-sm-3">
+        {{input type="text" value=model.location.name classNames="form-control"}}
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputLastName" class="col-sm-2 control-label">Room</label>
+      <div class="col-sm-3">
+        {{view "select" content=model.rooms.rooms optionValuePath="content.id" optionLabelPath="content.name" value=model.location.room.id prompt="Please select a room" classNames="form-control"}}
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <button type="submit" class="btn btn-primary" {{action 'updateLocation'}}>Update</button>
+      </div>
+    </div>
+  </form>
 </div>
