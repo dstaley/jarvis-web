@@ -40,6 +40,7 @@
                     <tr>
                         <th>Item</th>
                         <th>Return Date</th>
+                        <th>Returned By</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -47,6 +48,7 @@
                         <tr>
                             <td>{{#link-to 'item' checkout_item.item.id}}{{checkout_item.item.name}}{{/link-to}}</td>
                             <td>{{#if checkout_item.return_date}}{{moment checkout_item.return_date}}{{/if}}</td>
+                            <td>{{#if checkout_item.returned_by}}{{checkout_item.returned_by.name}}{{/if}}</td>
                         </tr>
                     {{/each}}
                 </tbody>
