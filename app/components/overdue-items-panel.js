@@ -2,8 +2,8 @@ import Ember from 'ember';
 import jarvisAPI from '../utils/jarvis';
 
 export default Ember.Component.extend({
-  items: 0,
-  panel_color: function(){
+  itemCount: 0,
+  panelColor: function(){
     if (this.get('items') === 0) {
       return 'panel-green';
     } else if (this.get('items') < 25) {
@@ -15,7 +15,7 @@ export default Ember.Component.extend({
   didInsertElement: function(){
     var component = this;
     jarvisAPI.find('reports/overdue-items').then(function(response){
-      component.set('items', response.overdue_items);
+      component.set('itemCount', response.overdue_items);
     });
   }
 });
